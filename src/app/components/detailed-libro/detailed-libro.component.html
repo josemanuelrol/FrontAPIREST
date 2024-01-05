@@ -1,0 +1,27 @@
+<div class="card shadow-lg" data-bs-theme="dark">
+  <div class="card-body">
+    <div class="container">
+      <div class="row text-center">
+        <h1>{{libro.titulo}}</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5 class="mt-4">Autor: {{libro.autor}}</h5>
+          <h5 class="mt-4">Categoria: {{libro.categoria}}</h5>
+          <h5 class="mt-4">Fecha: {{libro.fecha}}</h5>
+          <h5 class="mt-4">Precio: {{libro.precio}}</h5>
+          <h5 class="mt-4">Unidades: {{libro.unidades}}</h5>
+        </div>
+        <div class="col">
+          <img class="p-4" style="width: 50%; margin-left: 20%;" src="./assets/libro.png">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col text-center">
+          <button type="submit" class="btn btn-primary m-2" routerLink="/home" >Volver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

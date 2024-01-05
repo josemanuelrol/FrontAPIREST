@@ -1,0 +1,77 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow-lg rounded rounded-4" data-bs-theme="dark">
+        <div class="card-body">
+          <h1 class="p-3">Modificar Libro</h1>
+          <form #formAddLibro="ngForm">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <div>
+                  <label for="titulo">Titulo</label>
+                  <input type="text" class="form-control" id="titulo" name="titulo" #titulo="ngModel" required maxlength="100" [(ngModel)]="libro.titulo">
+                  <span class="text-danger fw-bold" *ngIf="titulo.invalid && titulo.dirty">
+                    El titulo es necesario (100 carácteres máximo).
+                  </span>
+                </div>
+
+                <div>
+                  <label for="autor">Autor</label>
+                  <input type="text" class="form-control" id="autor" name="autor" #autor="ngModel" required maxlength="100" [(ngModel)]="libro.autor">
+                  <span class="text-danger fw-bold" *ngIf="autor.invalid && autor.dirty">
+                    El autor es necesario (100 carácteres máximo).
+                  </span>
+                </div>
+
+                <div>
+                  <label for="categoria">Categoria</label>
+                  <select class="form-control" id="categoria" name="categoria" #categoria="ngModel" [(ngModel)]="libro.categoria">
+                    <option hidden value="">Seleccione la categoría:</option>
+                    <option *ngFor="let item of categorias" [value]="item">{{item}}</option>
+                    <option value="">Ninguno</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="fecha">Fecha</label>
+                  <input placeholder="yyyy/MM/dd" type="text" class="form-control" id="fecha" name="fecha" #fecha="ngModel" required pattern="([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))" maxlength="100" [(ngModel)]="libro.fecha">
+                  <span class="text-danger fw-bold" *ngIf="fecha.invalid && fecha.dirty">
+                    La fecha es necesaria (yyyy-MM-dd).
+                  </span>
+                </div>
+
+                <div>
+                  <label for="precio">Precio</label>
+                  <input type="number" class="form-control" id="precio" name="precio" #precio="ngModel" required [(ngModel)]="libro.precio">
+                  <span class="text-danger fw-bold" *ngIf="precio.invalid && precio.dirty">
+                    El precio es necesario.
+                  </span>
+                </div>
+
+                <div>
+                  <label for="unidades">Unidades</label>
+                  <input type="number" class="form-control" id="unidades" name="unidades" #unidades="ngModel" required [(ngModel)]="libro.unidades">
+                  <span class="text-danger fw-bold" *ngIf="unidades.invalid && unidades.dirty">
+                    Las unidades son necesarias.
+                  </span>
+                </div>
+
+                <div>
+                  <button type="submit" class="btn btn-success m-2" [disabled]="!formAddLibro.form.valid" (click)="updateLibro()">Modificar Libro</button>
+                  <button type="submit" class="btn btn-success m-2" routerLink="/home" >Volver</button>
+                </div>
+
+                <div class="m-4">
+                  <em [hidden]="titulo.valid && autor.valid" class="alert alert-danger p-4">
+                    Por favor complete todos los campos.
+                  </em>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
